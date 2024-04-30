@@ -28,11 +28,11 @@ def analisarAudio(audio, apiKey):
     headers = {
         "content-type": "text/plain",
         "x-rapidapi-host": "shazam.p.rapidapi.com",
-        "x-rapidapi-key": "e3b5e998ffmsh19c54b23a5a6031p1f1fa1jsn0e35a3fc6c22"
+        "x-rapidapi-key": "Enter_apiKey_here"
     }
 
     data = audioDataBase64
-    print(data)
+    # print(data)
 
     try:
         response = requests.request("POST",url, data=data, headers=headers)
@@ -48,13 +48,14 @@ def analisarAudio(audio, apiKey):
 
 nomeArquivo = "gravacao.wav"
 duracaoSegundos = 5
-apiKey = os.environ.apiKey #You should add your api key to the .env file
+apiKey = "Enter_apiKey_here" 
 
 audio = gravarAudio(nomeArquivo, duracaoSegundos)
 
 resultadoAnalise = analisarAudio(audio, apiKey)
 
 if resultadoAnalise is not None:
+    print("...")
     print(resultadoAnalise)
 else:
     print("Problemas com a API")
